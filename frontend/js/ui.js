@@ -1,11 +1,11 @@
-import api from './api.js'
+import api from "./api.js";
 
 const ui = {
   async renderizarPensamentos() {
-    const listaPensamentos = document.getElementById("lista-pensamentos")
+    const listaPensamentos = document.getElementById("lista-pensamentos");
 
     try {
-      const pensamentos = await api.buscarPensamentos()
+      const pensamentos = await api.buscarPensamentos();
       pensamentos.forEach((pensamento) => {
         listaPensamentos.innerHTML += `
           <li class="li-pensamento" data-id="${pensamento.id}">
@@ -13,13 +13,12 @@ const ui = {
           <div class="pensamento-conteudo">${pensamento.conteudo}</div>
           <div class="pensamento-autoria">${pensamento.autoria}</div>
           </li>
-        `
-      })
+        `;
+      });
+    } catch {
+      alert("Erro ao renderizar pensamentos");
     }
-    catch {
-      alert('Erro ao renderizar pensamentos')
-    }
-  }
-}
+  },
+};
 
 export default ui;
