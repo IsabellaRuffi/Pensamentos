@@ -59,21 +59,6 @@
       "id": "8b4c",
       "conteudo": "A vingança nunca é plena... mata a alma e a envenena...",
       "autoria": "Seu Madruga"
-    },
-    {
-      "id": "4d2e",
-      "conteudo": "Se eu for aí e achar, eu esfrego na sua cara!",
-      "autoria": "Mãe"
-    },
-    {
-      "conteudo": "Na minha máquina funciona!",
-      "autoria": "Dev",
-      "id": "KwyURcqtj8E"
-    },
-    {
-      "id": "0kuz0_XwoxU",
-      "conteudo": "Na minha máquina funcionaa",
-      "autoria": "Dev"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
