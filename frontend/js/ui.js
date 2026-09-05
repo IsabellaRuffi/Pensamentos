@@ -14,11 +14,17 @@ const ui = {
 
   async renderizarPensamentos() {
     const listaPensamentos = document.getElementById("lista-pensamentos");
+    const mensagemVazia = document.getElementById("mensagem-vazia");
     listaPensamentos.innerHTML = "";
 
     try {
       const pensamentos = await api.buscarPensamentos();
-      pensamentos.forEach(ui.adicionarPensamentoNaLista);
+      if (pensamentos.length === 0) {
+        mensagemVazia.style.display = "block";
+      } else {
+        mensagemVazia.style.display = "none";
+        pensamentos.forEach(ui.adicionarPensamentoNaLista);
+      }
     } catch {
       alert("Erro ao renderizar pensamentos");
     }
@@ -57,8 +63,7 @@ const ui = {
     botaoExcluir.onclick = async (event) => {
       try {
         await api.excluirPensamento(pensamento.id);
-        // Encontra o elemento pai do botão (o card do pensamento) e o remove
-        const cardParaRemover = event.target.closest(".pensamento"); // Assumindo que o card tem a classe 'pensamento'
+        const cardParaRemover = event.target.closest(".li-pensamento");
         if (cardParaRemover) {
           cardParaRemover.remove();
         }
